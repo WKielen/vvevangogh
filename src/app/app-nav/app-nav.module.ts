@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DefaultComponent } from './default/default.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { DefaultComponent } from './default/default.component';
     SidebarComponent,
     ConfigDialogComponent,
     NotificationDialogComponent,
+    LandingComponent,
   ],
   imports: [
     CommonModule,

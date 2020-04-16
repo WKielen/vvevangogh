@@ -33,11 +33,12 @@ import { TrainingOverzichtComponent } from './my-pages/trainingoverzicht/trainin
 import { NotificationDialogComponent } from './app-nav/headernotificationdialog/notification.dialog';
 import { DefaultComponent } from './app-nav/default/default.component';
 import { TestComponent } from './my-pages/test/test.component';
+import { LandingComponent } from './app-nav/landing/landing.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DefaultComponent,
+    component: LandingComponent,
     children: [
       { path: '', component: HomeComponent },
       { path: ROUTE.landingPageRoute, component: HomeComponent },
