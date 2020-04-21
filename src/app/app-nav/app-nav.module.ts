@@ -10,7 +10,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
+import { HeaderLandingComponent } from './headerlanding/header.landing.component';
 import { FooterComponent } from './footer/footer.component';
+import { FooterLandingComponent } from './footerlanding/footer.landing.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ConfigDialogComponent } from './headerconfigdialog/config.dialog';
 import { NotificationDialogComponent } from './headernotificationdialog/notification.dialog';
@@ -24,18 +26,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DefaultComponent } from './default/default.component';
-import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
   declarations: [
     DefaultComponent,
     HeaderComponent,
+    HeaderLandingComponent,
     FooterComponent,
+    FooterLandingComponent,
     SidebarComponent,
     ConfigDialogComponent,
     NotificationDialogComponent,
-    LandingComponent,
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,9 @@ import { LandingComponent } from './landing/landing.component';
   ],
   exports: [
     HeaderComponent,
+    HeaderLandingComponent,
     FooterComponent,
+    FooterLandingComponent,
     SidebarComponent,
     ConfigDialogComponent,
     NotificationDialogComponent,

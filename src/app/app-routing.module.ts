@@ -10,38 +10,26 @@ import { OudLedenComponent } from './my-pages/oud-leden/oud-leden.component';
 import { DownloadComponent } from './my-pages/download/download.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { HomeComponent } from './my-pages/home/home.component';
-import { SignInDialogComponent } from './my-pages/sign-in/sign-in.dialog';
-import { AgendaDialogComponent } from './my-pages/agenda/agenda.dialog';
-import { WebsiteDialogComponent } from './my-pages/website/website.dialog';
-import { MailDialogComponent } from './my-pages/mail/mail.dialog';
-import { RolesDialogComponent } from './my-pages/users/roles.dialog';
 import { OfflineComponent } from './my-pages/offline/offline.component';
-import { LedenDialogComponent } from './my-pages/ledenmanager/ledenmanager.dialog';
-import { LedenDeleteDialogComponent } from './my-pages/ledenmanager/ledendelete.dialog';
 import { MultiUpdateComponent } from './my-pages/multi-update/multi-update.component';
 import { ContrBedragenComponent } from './my-pages/contr-bedragen/contr-bedragen.component';
 import { MailComponent } from './my-pages/mail/mail.component';
 import { WebsiteComponent } from './my-pages/website/website.component';
 import { LadderComponent } from './my-pages/ladder/ladder.component';
 import { PAGEROLES, ROUTE } from 'src/app/shared/classes/Page-Role-Variables';
-import { ConfigDialogComponent } from './app-nav/headerconfigdialog/config.dialog';
-import { SingleMailDialogComponent } from './my-pages/mail/singlemail.dialog';
 import { SyncNttbComponent } from './my-pages/syncnttb/syncnttb.component';
 import { TrainingDeelnameComponent } from './my-pages/trainingdeelname/trainingdeelname.component';
-import { TrainingOverzichtDialogComponent } from './my-pages/trainingoverzicht/trainingoverzicht.dialog';
 import { TrainingOverzichtComponent } from './my-pages/trainingoverzicht/trainingoverzicht.component';
-import { NotificationDialogComponent } from './app-nav/headernotificationdialog/notification.dialog';
 import { DefaultComponent } from './app-nav/default/default.component';
 import { TestComponent } from './my-pages/test/test.component';
-import { LandingComponent } from './app-nav/landing/landing.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent,
+    component: DefaultComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: ROUTE.landingPageRoute, component: HomeComponent },
+      { path: ROUTE.homePageRoute, component: HomeComponent },
       { path: ROUTE.dashboardPageRoute, component: DashboardComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.dashboardPageRoute } },
       { path: ROUTE.ledenPageRoute, component: LedenComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.ledenPageRoles } },
       { path: ROUTE.ledenmanagerPageRoute, component: LedenManagerComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.ledenmanagerPageRoles } },

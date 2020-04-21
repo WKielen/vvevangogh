@@ -5,13 +5,10 @@
 
         <mat-form-field style='width:100%'>
             <!-- hieronder de formControlName zoals in de formgroup is beschreven -->
-            <input matInput placeholder="Bondsnummer" formControlName="userid" [formControl]="userid"
+            <input matInput placeholder="Gebruikersnaam" formControlName="userid" [formControl]="userid"
                 [errorStateMatcher]="matcher">
-            <mat-error *ngIf="userid.hasError('minlength') || userid.hasError('maxlength')">
-                Bondsnummer exact 7 numeriek zijn
-            </mat-error>
             <mat-error *ngIf="userid.hasError('required')">
-                Bondsnummer is verplicht
+                Gebruikersnaam is verplicht
             </mat-error>
         </mat-form-field>
 

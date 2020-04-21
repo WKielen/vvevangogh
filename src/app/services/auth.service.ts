@@ -23,6 +23,7 @@ export class AuthService {
       .pipe(
         map(response => {
           localData = response;
+          console.log('auth', localData);
           if (localData && localData.Token) {
             localStorage.setItem('token', localData.Token);
             return true;

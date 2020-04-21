@@ -20,7 +20,7 @@ export class SignInDialogComponent {
     loginForm = new FormGroup ({
         userid : new FormControl(
             '',
-            [Validators.required, Validators.minLength(7), Validators.maxLength(7) ]
+            [Validators.required]
         ),
         password : new FormControl(
             '',
@@ -55,7 +55,6 @@ export class SignInDialogComponent {
         err => {
           this.invalidLogin = true;
         });
-
     }
 
     /***************************************************************************************************
