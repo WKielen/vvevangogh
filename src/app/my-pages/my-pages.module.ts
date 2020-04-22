@@ -41,11 +41,15 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
+import { BewonersComponent } from './bewoners/bewoners.component';
+import { GebruikersComponent } from './gebruikers/gebruikers.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    BewonersComponent,
+    GebruikersComponent,
     DashboardComponent,
     LedenComponent,
     LedenManagerComponent,

@@ -6,9 +6,9 @@ export const environment = {
   production: false,
   homePage: 'home',
   dashboardPage: 'home',
-  baseUrl: 'https://www.ttvn.nl/api',
-  loginUrl: 'https://www.ttvn.nl/api/login',
-  databaseName: 'ttest',
+  baseUrl: 'https://vvevangogh.kielen.nl/api',
+  loginUrl: 'https://vvevangogh.kielen.nl/api/login',
+  databaseName: 'kielennl',
   mailUrl: 'http://84.104.233.194:5001'
 };
 

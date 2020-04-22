@@ -62,12 +62,7 @@ export class AuthService {
     }
     const jsonToken = this.jwtHelper.decodeToken(token);
 
-    let name = jsonToken.firstname;
-    if (jsonToken.prefix) {
-      name += ' ' + jsonToken.prefix;
-    }
-    name += ' ' + jsonToken.lastname;
-    return name;
+    return jsonToken.name;
   }
 
   get roles() {

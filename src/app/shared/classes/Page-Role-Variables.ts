@@ -1,14 +1,21 @@
 export const ROLES = {
     BESTUUR: 'BS',
+    BEWONER: 'BW',
+    BEHEER: 'BH',
+    ADMIN: 'AD',
     JC: 'JC',
     TRAINER: 'TR',
     LEDENADMIN: 'LA',
     PENNINGMEESTER: 'PM',
-    ADMIN: 'AD',
     TEST: 'TE',
+
 };
 
 export const PAGEROLES = {
+    homePageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.BEHEER, ROLES.BEWONER],
+    bewonersPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.BEHEER],
+    gebruikersPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
+    downloadPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.BEHEER],
     dashboardPageRoute: [ROLES.TEST],
     ledenPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC, ROLES.TRAINER],
     ledenmanagerPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.LEDENADMIN],
@@ -16,7 +23,6 @@ export const PAGEROLES = {
     agendaPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC],
     websitePageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC],
     multiupdatePageRoles: [ROLES.ADMIN, ROLES.PENNINGMEESTER, ROLES.LEDENADMIN],
-    downloadPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC],
     oudledenPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.LEDENADMIN],
     contrbedragenPageRoles: [ROLES.ADMIN, ROLES.PENNINGMEESTER],
     usersPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
@@ -28,6 +34,10 @@ export const PAGEROLES = {
 
 export const ROUTE = {
     homePageRoute: 'home',
+    bewonersPageRoute: 'bewoners',
+    gebruikersPageRoute: 'gebruikers',
+    downloadPageRoute: 'download',
+    offlinePageRoute: 'offline',
     dashboardPageRoute: 'dashboard',
     ledenPageRoute: 'leden',
     ledenmanagerPageRoute: 'ledenmanager',
@@ -35,7 +45,6 @@ export const ROUTE = {
     agendaPageRoute: 'agenda',
     websitePageRoute: 'website',
     multiupdatePageRoute: 'multiupdate',
-    downloadPageRoute: 'download',
     oudledenPageRoute: 'oudleden',
     contrbedragenPageRoute: 'contrbedragen',
     usersPageRoute: 'users',
@@ -44,7 +53,6 @@ export const ROUTE = {
     testPageRoute: 'test',
     trainingdeelnamePageRoute: 'trainingdeelname',
     trainingoverzichtPageRoute: 'trainingoverzicht',
-    offlinePageRoute: 'offline'
 };
 
 //anotherfile.ts that refers to global constants

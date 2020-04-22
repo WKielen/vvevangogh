@@ -22,6 +22,8 @@ import { TrainingDeelnameComponent } from './my-pages/trainingdeelname/trainingd
 import { TrainingOverzichtComponent } from './my-pages/trainingoverzicht/trainingoverzicht.component';
 import { DefaultComponent } from './app-nav/default/default.component';
 import { TestComponent } from './my-pages/test/test.component';
+import { GebruikersComponent } from './my-pages/gebruikers/gebruikers.component';
+import { BewonersComponent } from './my-pages/bewoners/bewoners.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,9 @@ const routes: Routes = [
       { path: ROUTE.trainingdeelnamePageRoute, component: TrainingDeelnameComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.trainingdeelnamePageRoles } },
       { path: ROUTE.trainingoverzichtPageRoute, component: TrainingOverzichtComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.trainingdeelnamePageRoles } },
       { path: ROUTE.testPageRoute, component: TestComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.testPageRoles } },
+
+      { path: ROUTE.gebruikersPageRoute, component: GebruikersComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.gebruikersPageRoles } },
+      { path: ROUTE.bewonersPageRoute  , component: BewonersComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.bewonersPageRoles } },
       { path: ROUTE.offlinePageRoute, component: OfflineComponent },
       { path: '**', component: HomeComponent }
     ]
