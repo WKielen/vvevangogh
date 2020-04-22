@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DefaultComponent implements OnInit {
 
-  sideBarOpen: boolean = false;
+  sideBarOpen: boolean = true;
   logonData: LogonData = new LogonData();
 
   constructor(
