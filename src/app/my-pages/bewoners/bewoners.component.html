@@ -1,1 +1,130 @@
-<p>bewoners works!</p>
+<div fxLayout='row' fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly start">
+    <div fxFlex='50'>
+        <div class="box">
+            <div class="boxheader">Informatie Bewoners </div>
+            <div class="boxcontent">
+
+                <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+
+                    <ng-container matColumnDef="Nr">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="mat-cell" class='margin-top-15'>
+                                <strong>Nr</strong>
+
+                            </div>
+                            <!-- <mat-form-field floatLabel="never" style="width:100px">
+                  <mat-label>Zoek</mat-label>
+                  <input matInput [formControl]="nameFilter" autocomplete="off">
+                </mat-form-field> -->
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.huisnummer }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Naam">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="mat-cell" class='margin-top-15'>
+                                <strong>Naam</strong>
+
+                            </div>
+                            <!-- <mat-form-field class="filter" floatLabel="never" style="width:60px">
+                  <mat-label>Zoek</mat-label>
+                  <input matInput [formControl]="ageFilter">
+                </mat-form-field> -->
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.naam }} </td>
+                    </ng-container>
+
+                    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+                    <ng-container matColumnDef="expandedDetail">
+                        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+
+                            <div class="element-detail"
+                                [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                <table>
+                                    <tr>
+                                        <td width="30%"></td>
+                                        <td width="70%"></td>
+                                    </tr>
+                                    <tr *ngIf='element.telefoon1'>
+                                        <td class='cell'>Telefoon 1:</td>
+                                        <td class='cell'>{{ element.telefoon1 }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.telefoon2'>
+                                        <td class='cell'>Telefoon 2:</td>
+                                        <td class='cell'>{{ element.telefoon2 }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.email'>
+                                        <td class='cell'>Email 1:</td>
+                                        <td class='cell'>{{ element.email }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.email2'>
+                                        <td class='cell'>Email 2:</td>
+                                        <td class='cell'>{{ element.email2 }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.opm'>
+                                        <td class='cell'>Opmerking:</td>
+                                        <td class='cell'>{{ element.opm }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.type'>
+                                        <td class='cell'>Flattype:</td>
+                                        <td class='cell'>{{ element.type }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.bouwnummer > 0'>
+                                        <td class='cell'>Bouwnummer:</td>
+                                        <td class='cell'>{{ element.bouwnummer }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.verdieping'>
+                                        <td class='cell'>Verdieping:</td>
+                                        <td class='cell'>{{ element.verdieping }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.breukdeel > 0'>
+                                        <td class='cell'>Breukdeel :</td>
+                                        <td class='cell'>{{ element.breukdeel }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.edocs'>
+                                        <td class='cell'>Elec Docs:</td>
+                                        <td class='cell'>{{ element.edocs.toDutchTextString() }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.contact'>
+                                        <td class='cell'>Contact:</td>
+                                        <td class='cell'>{{ element.contact }}</td>
+                                    </tr>
+                                    <tr *ngIf='element.halcode > 0'>
+                                        <td class='cell'>Halcode:</td>
+                                        <td class='cell'>{{ element.halcode }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                    <tr mat-row *matRowDef="let element; columns: ['Nr', 'Naam']" class="element-row"
+                        [class.example-expanded-row]="expandedElement === element" (click)="expandedElement = element">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div fxFlex='10' fxLayout='column' fxLayoutAlign="space-evenly start" style='margin-top: 50px;'>
+        <button mat-raised-button color="primary" (click)="onClickNoFilter($event)">Reset</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterVerdieping($event, '0')">Verdieping 0</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterVerdieping($event, '1')">Verdieping 1</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterVerdieping($event, '2')">Verdieping 2</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterVerdieping($event, '3')">Verdieping 3</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterVerdieping($event, '4')">Verdieping 4</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterVerdieping($event, '5')">Verdieping 5</button>        
+        <button mat-raised-button color="primary" (click)="onClickFilterVerdieping($event, '6')">Verdieping 6</button>        
+    </div>
+    <div fxFlex='10' fxLayout='column' fxLayoutAlign="space-evenly start" style='margin-top: 50px;'>
+        <button mat-raised-button color="primary" (click)="onClickFilterEdocs($event, '0')">Geen Edocs</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterType($event, 'G')">Type G</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterType($event, 'G1')">Type G1</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterType($event, 'H')">Type H</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterType($event, 'K')">Type K</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterType($event, 'L')">Type L</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterType($event, 'M')">Type M</button>
+        <button mat-raised-button color="primary" (click)="onClickFilterType($event, 'N')">Type N</button>
+    </div>
+</div>

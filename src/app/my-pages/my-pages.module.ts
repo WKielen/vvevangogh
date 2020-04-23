@@ -43,6 +43,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { BewonersComponent } from './bewoners/bewoners.component';
 import { GebruikersComponent } from './gebruikers/gebruikers.component';
+import { OnderhoudComponent } from './onderhoud/onderhoud.component';
+import { BewonerAddDialogComponent } from './onderhoud/add.dialog';
 
 
 @NgModule({
@@ -67,6 +69,7 @@ import { GebruikersComponent } from './gebruikers/gebruikers.component';
     TrainingOverzichtComponent,
     TestComponent,
 
+    BewonerAddDialogComponent,
     AgendaDialogComponent,
     LedenDialogComponent,
     LedenDeleteDialogComponent,
@@ -80,6 +83,7 @@ import { GebruikersComponent } from './gebruikers/gebruikers.component';
     SelectLidDropdownComponent,
     CheckboxListComponent,
     ParentComponent,
+    OnderhoudComponent,
   ],
   imports: [
     CommonModule,
@@ -92,40 +96,7 @@ import { GebruikersComponent } from './gebruikers/gebruikers.component';
     LayoutModule,
     HttpClientModule,
     SharedModule,
-    // AngularIbanModule,
   ],
-  // exports: [
-  //   HomeComponent,
-  //   LedenComponent,
-  //   LedenManagerComponent,
-  //   MailComponent,
-  //   AgendaComponent,
-  //   WebsiteComponent,
-  //   LadderComponent,
-  //   MultiUpdateComponent,
-  //   DownloadComponent,
-  //   ContrBedragenComponent,
-  //   OudLedenComponent,
-  //   UsersComponent,
-  //   SyncNttbComponent,
-  //   TrainingDeelnameComponent,
-  //   TrainingOverzichtComponent,
-  //   TestComponent,
 
-  //   AgendaDialogComponent,
-  //   LedenDialogComponent,
-  //   LedenDeleteDialogComponent,
-  //   MailDialogComponent,
-  //   RolesDialogComponent,
-  //   SignInDialogComponent,
-  //   SingleMailDialogComponent,
-  //   TrainingOverzichtDialogComponent,  
-  //   WebsiteDialogComponent,
-
-  //   SelectLidDropdownComponent,
-  //   CheckboxListComponent,
-  //   ParentComponent,
-
-  // ]
 })
 export class MyPagesModule { }

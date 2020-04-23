@@ -8,6 +8,8 @@ import { PAGEROLES, ROUTE } from 'src/app/shared/classes/Page-Role-Variables';
 import { DefaultComponent } from './app-nav/default/default.component';
 import { GebruikersComponent } from './my-pages/gebruikers/gebruikers.component';
 import { BewonersComponent } from './my-pages/bewoners/bewoners.component';
+import { DownloadComponent } from './my-pages/download/download.component';
+import { OnderhoudComponent } from './my-pages/onderhoud/onderhoud.component';
 
 const routes: Routes = [
   {
@@ -16,8 +18,10 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: ROUTE.homePageRoute, component: HomeComponent },
-      { path: ROUTE.gebruikersPageRoute, component: GebruikersComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.gebruikersPageRoles } },
       { path: ROUTE.bewonersPageRoute  , component: BewonersComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.bewonersPageRoles } },
+      { path: ROUTE.downloadPageRoute  , component: DownloadComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.downloadPageRoles } },
+      { path: ROUTE.onderhoudPageRoute, component: OnderhoudComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.onderhoudPageRoles } },
+      { path: ROUTE.gebruikersPageRoute, component: GebruikersComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.gebruikersPageRoles } },
       { path: ROUTE.offlinePageRoute, component: OfflineComponent },
       { path: '**', component: HomeComponent }
     ]

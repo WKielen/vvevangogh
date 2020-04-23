@@ -14,8 +14,10 @@ export const ROLES = {
 export const PAGEROLES = {
     homePageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.BEHEER, ROLES.BEWONER],
     bewonersPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.BEHEER],
-    gebruikersPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
     downloadPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.BEHEER],
+    onderhoudPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
+    gebruikersPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
+
     dashboardPageRoute: [ROLES.TEST],
     ledenPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC, ROLES.TRAINER],
     ledenmanagerPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.LEDENADMIN],
@@ -35,8 +37,10 @@ export const PAGEROLES = {
 export const ROUTE = {
     homePageRoute: 'home',
     bewonersPageRoute: 'bewoners',
-    gebruikersPageRoute: 'gebruikers',
     downloadPageRoute: 'download',
+    onderhoudPageRoute: 'onderhoud',
+    gebruikersPageRoute: 'gebruikers',
+
     offlinePageRoute: 'offline',
     dashboardPageRoute: 'dashboard',
     ledenPageRoute: 'leden',

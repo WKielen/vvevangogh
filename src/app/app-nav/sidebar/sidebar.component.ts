@@ -20,15 +20,17 @@ export class SidebarComponent implements OnInit {
 
   // Mag de optie in het menu worden getoond?
   showRouteHome: boolean = false;
-  showRouteGebruikers: boolean = false;
   showRouteBewoners: boolean = false;
   showRouteDownload: boolean = false;
+  showRouteOnderhoud: boolean = false;
+  showRouteGebruikers: boolean = false;
 
   // De routes naar de pagina's 
   routeHome = ROUTE.homePageRoute;
-  routeGebruikers = ROUTE.gebruikersPageRoute;
   routeBewoners = ROUTE.bewonersPageRoute;
   routeDownload = ROUTE.downloadPageRoute;
+  routeOnderhoud = ROUTE.onderhoudPageRoute;
+  routeGebruikers = ROUTE.gebruikersPageRoute;
   // Wordt gebruikt om de naam te tonen bovenaan het menu
   name = this.authService.fullName;
 
@@ -40,9 +42,10 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.showRouteHome = this.authService.showRoute(PAGEROLES.homePageRoles);
-    this.showRouteGebruikers = this.authService.showRoute(PAGEROLES.gebruikersPageRoles);
     this.showRouteBewoners = this.authService.showRoute(PAGEROLES.bewonersPageRoles);
     this.showRouteDownload = this.authService.showRoute(PAGEROLES.downloadPageRoles);
+    this.showRouteOnderhoud = this.authService.showRoute(PAGEROLES.onderhoudPageRoles);
+    this.showRouteGebruikers = this.authService.showRoute(PAGEROLES.gebruikersPageRoles);
   }
   // Op de mobiel wordt het menu automatisch gesloten wanneer en een keuze is gemaakt.
   route(myRoute: string): void {

@@ -9,6 +9,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 
 export class AuthService {
+  private tokenname:string = 'vvetoken';
 
   constructor(private http: HttpClient,
   ) {
@@ -25,7 +26,7 @@ export class AuthService {
           localData = response;
           console.log('auth', localData);
           if (localData && localData.Token) {
-            localStorage.setItem('token', localData.Token);
+            localStorage.setItem(this.tokenname, localData.Token);
             return true;
           }
           return false;
@@ -35,11 +36,11 @@ export class AuthService {
 
   logOff() {
     // localStorage.removeItem(environment.localStorageUserId);
-    localStorage.removeItem('token');
+    localStorage.removeItem(this.tokenname);
   }
 
   isLoggedIn() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(this.tokenname);
     if (!token) {
       return false;
     }
@@ -47,7 +48,7 @@ export class AuthService {
   }
 
   get userId() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(this.tokenname);
     if (!this.token) {
       return false;
     }
@@ -56,7 +57,7 @@ export class AuthService {
   }
 
   get fullName() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(this.tokenname);
     if (!this.token) {
       return false;
     }
@@ -66,7 +67,7 @@ export class AuthService {
   }
 
   get roles() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(this.tokenname);
     if (!this.token) {
       return '';
     }
@@ -75,7 +76,7 @@ export class AuthService {
   }
 
   get token() {
-    return localStorage.getItem('token');
+    return localStorage.getItem(this.tokenname);
   }
 
   /***************************************************************************************************

@@ -1,0 +1,53 @@
+<div fxLayout='row' fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly start">
+    <div fxFlex='60'>
+        <div class="box">
+            <div class="boxheader">Onderhoud bewoners</div>
+            <div class="boxcontent">
+
+                <mat-table #table [dataSource]="dataSource" class="mat-cell">
+
+                    <ng-container matColumnDef="Nr">
+                        <mat-header-cell *matHeaderCellDef>Nr</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.huisnummer}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Naam">
+                        <mat-header-cell *matHeaderCellDef>Naam</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.naam}}</mat-cell>
+                    </ng-container>
+
+
+                    <!-- actions -->
+                    <ng-container matColumnDef="actions">
+                        <mat-header-cell *matHeaderCellDef>
+                            <button mat-icon-button color="primary" (click)="onAdd()">
+                                <mat-icon aria-label="Add icon">add</mat-icon>
+                            </button>
+                        </mat-header-cell>
+
+                        <mat-cell *matCellDef="let row; let i=index;">
+                            <button mat-icon-button color="primary">
+                                <mat-icon aria-label="Edit">edit</mat-icon>
+                            </button>
+                            <!--   <button mat-icon-button color="accent" (click)="startEdit(i, row.id, row.title, row.state, row.url, row.created_at, row.updated_at)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button> -->
+
+                            <button mat-icon-button color="warn">
+                                <mat-icon aria-label="Delete">delete</mat-icon>
+                            </button>
+
+                            <!-- <button mat-icon-button color="accent" (click)="deleteItem(i, row.id, row.title, row.state, row.url)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button> -->
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+                </mat-table>
+
+            </div>
+        </div>
+    </div>
+</div>

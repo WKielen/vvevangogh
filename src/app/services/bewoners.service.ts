@@ -81,11 +81,15 @@ export class BewonersService extends DataService {
 / Record for the database
 /***************************************************************************************************/
 export class BewonerItem {
-  huisnummer?: string = '';
+  localeCompare(item2: BewonerItem, undefined: undefined, arg2: { numeric: boolean; }): number {
+    throw new Error("Method not implemented.");
+  }
+  huisnummer: number = 0;
   naam?: string = '';
   telefoon1?: string = '';
   telefoon2?: string = '';
   email?: string = '';
+  email2?: string = '';
   opm?: string = '';
   type?: string = '';
   bouwnummer?: number  = 0;
@@ -93,5 +97,5 @@ export class BewonerItem {
   breukdeel?: number = 0;
   edocs?: string = '';
   contact?: string = '';
-  halcod?: number = 0;
+  halcode?: number = 0;
 }
