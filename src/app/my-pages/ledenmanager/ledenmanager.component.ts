@@ -4,7 +4,6 @@ import { LedenService, LedenItem } from './../../services/leden.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
-import { LedenDeleteDialogComponent } from '../ledenmanager/ledendelete.dialog';
 import { AppError } from '../../shared/error-handling/app-error';
 import { DuplicateKeyError } from '../../shared/error-handling/duplicate-key-error';
 import { NotFoundError } from '../../shared/error-handling/not-found-error';
@@ -111,35 +110,6 @@ export class LedenManagerComponent extends ParentComponent implements OnInit {
     / 
     /***************************************************************************************************/
     onDelete(): void {
-        let toBeDeleted = this.selection.selected[0];
-        toBeDeleted.LidTot = new Date().to_YYYY_MM_DD();
-        const dialogRef = this.dialog.open(LedenDeleteDialogComponent, {
-            panelClass: 'custom-dialog-container', width: '300px',
-            data: { 'method': 'Opzeggen', 'data': toBeDeleted }
-        });
-
-        dialogRef.afterClosed().subscribe((result: LedenItem) => {
-            // console.log('received in OnEdit from dialog', result);
-            if (result) {  // in case of cancel the result will be false
-                toBeDeleted.LidTot = result.LidTot;
-                const updateRecord = { 'LidNr': result.LidNr, 'Opgezegd': '1', 'LidTot': result.LidTot };
-                let sub = this.ledenService.update$(updateRecord)
-                    .subscribe(data => {
-                        this.refreshTableLayout();
-                        this.showSnackBar('Jammer, dat dit lid heeft opgezegd');
-                        if (LedenItem.GetEmailList(toBeDeleted).length > 0) {
-                            this.showMailDialog(toBeDeleted, 'delete');
-                        }
-                    },
-                        (error: AppError) => {
-                            if (error instanceof NotFoundError) {
-                                this.showSnackBar(SnackbarTexts.NotFound);
-                            }
-                            this.showSnackBar(SnackbarTexts.NoChanges);
-                        });
-                this.registerSubscription(sub);
-            }
-        });
     }
 
     /***************************************************************************************************

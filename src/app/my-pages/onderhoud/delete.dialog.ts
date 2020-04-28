@@ -6,38 +6,28 @@ import { FormValueToDutchDateString } from 'src/app/shared/modules/DateRoutines'
 
 
 @Component({
-    selector: 'app-ledendelete-dialog',
-    templateUrl: './ledendelete.dialog.html',
+    selector: 'app-delete-dialog',
+    templateUrl: './delete.dialog.html',
 })
-export class LedenDeleteDialogComponent implements OnInit {
+export class BewonerDeleteDialogComponent implements OnInit {
     ledenItemForm = new FormGroup({
         opzegDatum: new FormControl ('', [Validators.required]),
     });
 
     constructor(
-        public dialogRef: MatDialogRef<LedenDeleteDialogComponent>,
+        public dialogRef: MatDialogRef<BewonerDeleteDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data,
-        private adapter: DateAdapter<any>) {
-        this.adapter.setLocale('nl');
-    }
+        ) {}
 
     ngOnInit(): void {
-        this.opzegDatum.setValue(this.data.data.LidTot);
-        //console.log('received by dialog', this.data.data);
     }
 
     /***************************************************************************************************
     / 
     /***************************************************************************************************/
-    onSubmit(): void {
-        this.data.data.LidTot = FormValueToDutchDateString(this.opzegDatum.value);
+    confirmDelete(): void {
         this.dialogRef.close(this.data.data);
     }
 
-/***************************************************************************************************
-/ Properties
-/***************************************************************************************************/
-    get opzegDatum() {
-        return this.ledenItemForm.get('opzegDatum');
-    }
+
 }

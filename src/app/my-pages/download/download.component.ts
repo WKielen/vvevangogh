@@ -82,7 +82,7 @@ export class DownloadComponent extends ParentComponent implements OnInit {
                 tmpText += '\n';
                 tmpText += '"' + element.naam + '",';
                 tmpText += '"' + element.huisnummer + '",';
-                tmpText += '"' + element.email + '",';
+                tmpText += '"' + element.email;
                 nbr++;
             }
             if (element.email2) {

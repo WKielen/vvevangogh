@@ -6,7 +6,7 @@
             <div fxFlex="60" fxLayout="column">
 
                 <mat-form-field style='width:100px'>
-                    <input matInput placeholder="Huisnummer" formControlName="huisnummer" [formControl]="huisnummer" required>
+                    <input matInput type='number' placeholder="Huisnummer" formControlName="huisnummer" [formControl]="huisnummer" required>
                     <mat-error *ngIf="huisnummer.hasError('required')">
                         Veld is verplicht
                     </mat-error>
@@ -20,10 +20,16 @@
         
                 <mat-form-field style='width:300px'>
                     <input matInput placeholder="Email 1" formControlName="email" [formControl]="email">
+                    <mat-error *ngIf="email.hasError('email')">
+                        Onjuist email adres
+                    </mat-error>
                 </mat-form-field>
         
                 <mat-form-field style='width:300px'>
                     <input matInput placeholder="Email 2" formControlName="email2" [formControl]="email2">
+                    <mat-error *ngIf="email2.hasError('email')">
+                        Onjuist email adres
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field style='width:500px'>
@@ -47,17 +53,11 @@
                     <input matInput placeholder="Telefoon 2" formControlName="telefoon2" [formControl]="telefoon2">
                 </mat-form-field>
 
-
-        
-         
-                <mat-form-field style='width:200px'>
-                    <input matInput placeholder="Elec Docs" formControlName="edocs" [formControl]="edocs">
-                </mat-form-field>
-
-        
                 <mat-form-field style='width:100px'>
-                    <input matInput placeholder="Halcode" formControlName="halcode" [formControl]="halcode">
+                    <input matInput type='number'placeholder="Halcode" formControlName="halcode" [formControl]="halcode">
                 </mat-form-field>
+
+                <mat-checkbox color="primary" formControlName="edocs" [formControl]="edocs">Alleen docs op papier</mat-checkbox>
         
             </div>
 
@@ -67,27 +67,21 @@
                 </mat-form-field>
         
                 <mat-form-field style='width:100px'>
-                    <input matInput placeholder="Bouwnummer" formControlName="bouwnummer" [formControl]="bouwnummer">
+                    <input matInput type='number'placeholder="Bouwnummer" formControlName="bouwnummer" [formControl]="bouwnummer">
                 </mat-form-field>
         
                 <mat-form-field style='width:100px'>
-                    <input matInput placeholder="Verdieping" formControlName="verdieping" [formControl]="verdieping">
+                    <input matInput type='number' placeholder="Verdieping" formControlName="verdieping" [formControl]="verdieping">
                 </mat-form-field>
         
                 <mat-form-field style='width:100px'>
-                    <input matInput placeholder="Breukdeel" formControlName="breukdeel" [formControl]="breukdeel">
+                    <input matInput type='number' placeholder="Breukdeel" formControlName="breukdeel" [formControl]="breukdeel">
                 </mat-form-field>
         
             </div>
         </div>
 
-
-
-
-
-
-
-        <button mat-raised-button color="primary" [disabled]='!AddBewonerForm.valid'>Save</button>
+        <button mat-raised-button color="primary" [disabled]='!AddBewonerForm.valid'>Bewaar</button>
         <button mat-raised-button type="button" color="accent" mat-dialog-close style="margin-left:25px">Cancel</button>
     </form>
 

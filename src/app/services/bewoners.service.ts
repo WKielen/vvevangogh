@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
 import { retry, tap, map, catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -81,9 +80,6 @@ export class BewonersService extends DataService {
 / Record for the database
 /***************************************************************************************************/
 export class BewonerItem {
-  localeCompare(item2: BewonerItem, undefined: undefined, arg2: { numeric: boolean; }): number {
-    throw new Error("Method not implemented.");
-  }
   huisnummer: number = 0;
   naam?: string = '';
   telefoon1?: string = '';

@@ -21,7 +21,7 @@ import { TestComponent } from './../my-pages/test/test.component';
 
 import { AgendaDialogComponent } from './../my-pages/agenda/agenda.dialog';
 import { LedenDialogComponent } from './../my-pages/ledenmanager/ledenmanager.dialog';
-import { LedenDeleteDialogComponent } from './../my-pages/ledenmanager/ledendelete.dialog';
+import { BewonerDeleteDialogComponent } from './onderhoud/delete.dialog';
 import { MailDialogComponent } from './../my-pages/mail/mail.dialog';
 import { RolesDialogComponent } from './../my-pages/users/roles.dialog';
 import { SignInDialogComponent } from './../my-pages/sign-in/sign-in.dialog';
@@ -72,7 +72,7 @@ import { BewonerAddDialogComponent } from './onderhoud/add.dialog';
     BewonerAddDialogComponent,
     AgendaDialogComponent,
     LedenDialogComponent,
-    LedenDeleteDialogComponent,
+    BewonerDeleteDialogComponent,
     MailDialogComponent,
     RolesDialogComponent,
     SignInDialogComponent,
