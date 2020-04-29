@@ -22,18 +22,18 @@ export class BewonerAddDialogComponent implements OnInit {
         email2: new FormControl('', [Validators.email]),
         opm: new FormControl(),
         type: new FormControl(),
-        bouwnummer: new FormControl('',[CustomValidator.numeric]),
-        verdieping: new FormControl('',[CustomValidator.numeric]),
-        breukdeel: new FormControl('',[CustomValidator.numeric]),
+        bouwnummer: new FormControl('', [CustomValidator.numeric]),
+        verdieping: new FormControl('', [CustomValidator.numeric]),
+        breukdeel: new FormControl('', [CustomValidator.numeric]),
         edocs: new FormControl(),
         contact: new FormControl(),
-        halcode: new FormControl('',[CustomValidator.numeric]),
+        halcode: new FormControl('', [CustomValidator.numeric]),
     });
 
-     constructor(
+    constructor(
         public dialogRef: MatDialogRef<BewonerAddDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data,
-        ) {}
+    ) { }
 
     ngOnInit(): void {
         this.huisnummer.setValue(this.data.data.huisnummer);
@@ -47,9 +47,11 @@ export class BewonerAddDialogComponent implements OnInit {
         this.bouwnummer.setValue(this.data.data.bouwnummer);
         this.verdieping.setValue(this.data.data.verdieping);
         this.breukdeel.setValue(this.data.data.breukdeel);
-        this.edocs.setValue(this.data.data.edocs=='0'?true:false);
+        this.edocs.setValue(this.data.data.edocs == '0' ? true : false);
         this.contact.setValue(this.data.data.contact);
         this.halcode.setValue(this.data.data.halcode);
+        if (this.data.method == 'Wijzigen')
+            this.AddBewonerForm.get('huisnummer').disable();
     }
 
     /***************************************************************************************************
@@ -67,7 +69,7 @@ export class BewonerAddDialogComponent implements OnInit {
         this.data.data.bouwnummer = this.bouwnummer.value;
         this.data.data.verdieping = this.verdieping.value;
         this.data.data.breukdeel = this.breukdeel.value;
-        this.data.data.edocs = this.edocs.value?'0':'1';
+        this.data.data.edocs = this.edocs.value ? '0' : '1';
         this.data.data.contact = this.contact.value;
         this.data.data.halcode = this.halcode.value;
         this.dialogRef.close(this.data.data);

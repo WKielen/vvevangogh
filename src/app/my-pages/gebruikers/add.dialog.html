@@ -1,0 +1,42 @@
+<h2 mat-dialog-title class="boxheader">{{data.method}}</h2>
+<div class="boxcontent">
+
+    <form [formGroup]="AddGebruikerForm" (ngSubmit)="onSubmit()" novalidate>
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly start">
+            <div fxFlex="100" fxLayout="column">
+
+                <mat-form-field style='width:200px'>
+                    <input matInput placeholder="InlogCode" formControlName="Userid" [formControl]="Userid" required>
+                    <mat-error *ngIf="Userid.hasError('required')">
+                        Veld is verplicht
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field style='width:300px'>
+                    <input matInput placeholder="Naam" formControlName="Name" [formControl]="Name" required>
+                </mat-form-field>
+
+                <mat-form-field style='width:200px'>
+                    <input matInput [type]="showPw ? 'text' : 'password'" placeholder="Wachtwoord" required
+                        [formControl]="Password" formControlName="Password">
+                    <mat-icon matSuffix (click)="showPw = !showPw">{{showPw ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                    <mat-error *ngIf="Password.hasError('minlength') && !Password.hasError('required')">
+                        Het wachtwoord moet {{
+                        Password.errors.minlength.requiredLength }} lang zijn
+                    </mat-error>
+                    <mat-error *ngIf="Password.hasError('required')">
+                        Wachtwoord is <strong>verplicht</strong>
+                    </mat-error>
+                </mat-form-field>
+                <app-checkbox-list [checkboxDictionary]='myCheckboxDictionary'
+                (click)="onRoleClicked($event)"></app-checkbox-list>
+            </div>
+        </div>
+
+        <button mat-raised-button color="primary" [disabled]='!AddGebruikerForm.valid'>Bewaar</button>
+        <button mat-raised-button type="button" color="accent" mat-dialog-close style="margin-left:25px">Cancel</button>
+        <button mat-raised-button type="button" class='box-bottom-button' color="alternative" (click)='onShowRoles()'
+            class='box-bottom-button'>Info Rollen</button>
+    </form>
+</div>

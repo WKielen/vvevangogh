@@ -24,6 +24,8 @@ export class SidebarComponent implements OnInit {
   showRouteDownload: boolean = false;
   showRouteOnderhoud: boolean = false;
   showRouteGebruikers: boolean = false;
+  showRouteDocumenten: boolean = false;
+  showRouteOnderhoudDocs: boolean = false;
 
   // De routes naar de pagina's 
   routeHome = ROUTE.homePageRoute;
@@ -31,6 +33,9 @@ export class SidebarComponent implements OnInit {
   routeDownload = ROUTE.downloadPageRoute;
   routeOnderhoud = ROUTE.onderhoudPageRoute;
   routeGebruikers = ROUTE.gebruikersPageRoute;
+  routeDocumenten = ROUTE.documentPageRoute;
+  routeOnderhoudDocs = ROUTE.documentOnderhoudPageRoute;
+
   // Wordt gebruikt om de naam te tonen bovenaan het menu
   name = this.authService.fullName;
 
@@ -46,6 +51,8 @@ export class SidebarComponent implements OnInit {
     this.showRouteDownload = this.authService.showRoute(PAGEROLES.downloadPageRoles);
     this.showRouteOnderhoud = this.authService.showRoute(PAGEROLES.onderhoudPageRoles);
     this.showRouteGebruikers = this.authService.showRoute(PAGEROLES.gebruikersPageRoles);
+    this.showRouteDocumenten = this.authService.showRoute(PAGEROLES.documentPageRoles);
+    this.showRouteOnderhoudDocs = this.authService.showRoute(PAGEROLES.onderhoudDocsPageRoles);
   }
   // Op de mobiel wordt het menu automatisch gesloten wanneer en een keuze is gemaakt.
   route(myRoute: string): void {

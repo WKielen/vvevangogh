@@ -25,8 +25,8 @@ export class DataService {
       );
   }
 
-  update$(resource) { // Om de een of andere reden werkt PATCH en PUT niet bij Vevida
-    return this.http.patch(this.url + '/Update', resource)
+  update$(resource) { 
+    return this.http.post(this.url + '/Update', resource)
       .pipe(
         retry(3),
         tap(
@@ -50,8 +50,10 @@ export class DataService {
   }
 
   delete$(id) {
+    if (typeof (id) === 'string')
+      id = '"' + id + '"';
+
     return this.http.delete(this.url + '/Delete?Id=' + id)
-    // return this.http.delete(this.url + '/Delete?Id=' + '"' + id + '"')
       .pipe(
         retry(3),
         tap(

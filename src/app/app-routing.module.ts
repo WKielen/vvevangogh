@@ -10,6 +10,8 @@ import { GebruikersComponent } from './my-pages/gebruikers/gebruikers.component'
 import { BewonersComponent } from './my-pages/bewoners/bewoners.component';
 import { DownloadComponent } from './my-pages/download/download.component';
 import { OnderhoudComponent } from './my-pages/onderhoud/onderhoud.component';
+import { DocumentenComponent } from './my-pages/documenten/documenten.component';
+import { OnderhoudDocsComponent } from './my-pages/onderhoud-docs/onderhoud-docs.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,8 @@ const routes: Routes = [
       { path: ROUTE.downloadPageRoute  , component: DownloadComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.downloadPageRoles } },
       { path: ROUTE.onderhoudPageRoute, component: OnderhoudComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.onderhoudPageRoles } },
       { path: ROUTE.gebruikersPageRoute, component: GebruikersComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.gebruikersPageRoles } },
+      { path: ROUTE.documentPageRoute, component: DocumentenComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.documentPageRoles } },
+      { path: ROUTE.documentOnderhoudPageRoute, component: OnderhoudDocsComponent, canActivate: [AuthGuard, AdminAuthGuard], data: { roles: PAGEROLES.onderhoudDocsPageRoles } },
       { path: ROUTE.offlinePageRoute, component: OfflineComponent },
       { path: '**', component: HomeComponent }
     ]

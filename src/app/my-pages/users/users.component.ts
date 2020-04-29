@@ -2,7 +2,7 @@ import { PasswordValidators } from './../users/password.validator';
 import { LidExtract } from '../../shared/components/select.lid.dropdown.component';
 import { Component, OnInit } from '@angular/core';
 import { LedenService } from '../../services/leden.service';
-import { CheckboxDictionairy } from '../../shared/components/checkbox.list.component';
+import { CheckboxDictionary } from '../../shared/components/checkbox.list.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../../shared/error-handling/Field.Error.State.Matcher';
 import { MatDialog } from '@angular/material/dialog';
@@ -45,14 +45,14 @@ export class UsersComponent extends ParentComponent implements OnInit {
     /***************************************************************************************************
     / 
     /***************************************************************************************************/
-    myCheckboxDictionairy: CheckboxDictionairy[] = [
-        { 'Id': ROLES.BESTUUR, 'Value': 'Bestuur' },
-        { 'Id': ROLES.JC, 'Value': 'Jeugdcommissie' },
-        { 'Id': ROLES.TRAINER, 'Value': 'Trainer' },
-        { 'Id': ROLES.LEDENADMIN, 'Value': 'Ledenadministratie' },
-        { 'Id': ROLES.PENNINGMEESTER, 'Value': 'Penningmeester' },
-        { 'Id': ROLES.TEST, 'Value': 'Test pagina\'s' },
-        { 'Id': ROLES.ADMIN, 'Value': 'Admin' },
+    myCheckboxDictionary: CheckboxDictionary[] = [
+        { 'Id': ROLES.BESTUUR, 'Value': 'Bestuur', 'isChecked': true },
+        { 'Id': ROLES.BESTUUR, 'Value': 'Jeugdcommissie', 'isChecked': true },
+        { 'Id': ROLES.BESTUUR, 'Value': 'Trainer', 'isChecked': true },
+        { 'Id': ROLES.BESTUUR, 'Value': 'Ledenadministratie', 'isChecked': true },
+        { 'Id': ROLES.BESTUUR, 'Value': 'Penningmeester', 'isChecked': true },
+        { 'Id': ROLES.BESTUUR, 'Value': 'Test pagina\'s', 'isChecked': true},
+        { 'Id': ROLES.ADMIN, 'Value': 'Admin', 'isChecked': true },
     ];
 
     constructor(private ledenService: LedenService,
@@ -123,7 +123,7 @@ export class UsersComponent extends ParentComponent implements OnInit {
     onShowRoles(): void {
         this.dialog.open(RolesDialogComponent, {
             panelClass: 'custom-dialog-container', width: '800px',
-            data: this.myCheckboxDictionairy
+            data: this.myCheckboxDictionary
         })
     }
 

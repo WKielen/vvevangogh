@@ -3,12 +3,6 @@ export const ROLES = {
     BEWONER: 'BW',
     BEHEER: 'BH',
     ADMIN: 'AD',
-    JC: 'JC',
-    TRAINER: 'TR',
-    LEDENADMIN: 'LA',
-    PENNINGMEESTER: 'PM',
-    TEST: 'TE',
-
 };
 
 export const PAGEROLES = {
@@ -17,21 +11,23 @@ export const PAGEROLES = {
     downloadPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.BEHEER],
     onderhoudPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
     gebruikersPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
+    documentPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.BEHEER, ROLES.BEWONER],
+    onderhoudDocsPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
 
-    dashboardPageRoute: [ROLES.TEST],
-    ledenPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC, ROLES.TRAINER],
-    ledenmanagerPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.LEDENADMIN],
-    mailPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC],
-    agendaPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC],
-    websitePageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.JC],
-    multiupdatePageRoles: [ROLES.ADMIN, ROLES.PENNINGMEESTER, ROLES.LEDENADMIN],
-    oudledenPageRoles: [ROLES.ADMIN, ROLES.BESTUUR, ROLES.LEDENADMIN],
-    contrbedragenPageRoles: [ROLES.ADMIN, ROLES.PENNINGMEESTER],
+    dashboardPageRoute: [ROLES.ADMIN],
+    ledenPageRoles: [ROLES.ADMIN],
+    ledenmanagerPageRoles: [ROLES.ADMIN],
+    mailPageRoles: [ROLES.ADMIN],
+    agendaPageRoles: [ROLES.ADMIN],
+    websitePageRoles: [ROLES.ADMIN],
+    multiupdatePageRoles: [ROLES.ADMIN],
+    oudledenPageRoles: [ROLES.ADMIN],
+    contrbedragenPageRoles: [ROLES.ADMIN],
     usersPageRoles: [ROLES.ADMIN, ROLES.BESTUUR],
-    ladderPageRoles: [ROLES.ADMIN, ROLES.JC],
-    syncnttbPageRoles: [ROLES.ADMIN, ROLES.LEDENADMIN],
-    testPageRoles: [ROLES.TEST],
-    trainingdeelnamePageRoles: [ROLES.TRAINER, ROLES.ADMIN, ROLES.BESTUUR,],
+    ladderPageRoles: [ROLES.ADMIN],
+    syncnttbPageRoles: [ROLES.ADMIN],
+    testPageRoles: [ROLES.ADMIN],
+    trainingdeelnamePageRoles: [ROLES.ADMIN],
 };
 
 export const ROUTE = {
@@ -40,6 +36,8 @@ export const ROUTE = {
     downloadPageRoute: 'download',
     onderhoudPageRoute: 'onderhoud',
     gebruikersPageRoute: 'gebruikers',
+    documentPageRoute: 'documenten',
+    documentOnderhoudPageRoute: 'onderhouddocs',
 
     offlinePageRoute: 'offline',
     dashboardPageRoute: 'dashboard',
@@ -59,13 +57,4 @@ export const ROUTE = {
     trainingoverzichtPageRoute: 'trainingoverzicht',
 };
 
-//anotherfile.ts that refers to global constants
-/*
-import { GlobalVariable } from './path/global';
 
-export class HeroService {
-    private baseApiUrl = GlobalVariable.BASE_API_URL;
-
-    //... more code
-}
-*/

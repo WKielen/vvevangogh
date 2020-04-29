@@ -1,0 +1,34 @@
+<h2 mat-dialog-title class="boxheader">{{data.method}}</h2>
+<div class="boxcontent">
+
+    <form [formGroup]="AddDocumentForm" (ngSubmit)="onSubmit()" novalidate>
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly start">
+            <div fxFlex="100" fxLayout="column">
+
+                <mat-form-field style='width:60%'>
+                    <input matInput placeholder="Korte Naam" formControlName="ShortName" [formControl]="ShortName" required>
+                    <mat-error *ngIf="ShortName.hasError('required')">
+                        Veld is verplicht
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field style='width:100%'>
+                    <input matInput placeholder="Weergave Naam" formControlName="LongName" [formControl]="LongName" required>
+                </mat-form-field>
+
+                <mat-form-field style='width:100%'>
+                    <input matInput placeholder="Url" formControlName="Url" [formControl]="Url" required>
+                </mat-form-field>
+                <mat-checkbox color="primary" formControlName="FrontPage" [formControl]="FrontPage">Zichtbaar op Document-pagina</mat-checkbox>
+                <mat-checkbox color="primary" formControlName="DocPage" [formControl]="DocPage">Zichtbaar op Inlog-pagina</mat-checkbox>
+                <mat-checkbox color="primary" formControlName="ManagementOnly" [formControl]="ManagementOnly">Alleen zichtbaar voor bestuur</mat-checkbox>
+                <br>
+
+            </div>
+        </div>
+
+        <button mat-raised-button color="primary" [disabled]='!AddDocumentForm.valid'>Bewaar</button>
+        <button mat-raised-button type="button" color="accent" mat-dialog-close style="margin-left:25px">Cancel</button>
+
+    </form>
+</div>

@@ -1,38 +1,38 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ParentComponent } from 'src/app/shared/components/parent.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { ParentComponent } from 'src/app/shared/components/parent.component';
-import { GebruikersService, GebruikerItem } from 'src/app/services/gebruikers.service';
+import { DocumentenService, DocumentItem } from 'src/app/services/documenten.service';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { GebruikerAddDialogComponent } from './add.dialog';
 import { SnackbarTexts } from 'src/app/shared/error-handling/SnackbarTexts';
-import { AppError } from 'src/app/shared/error-handling/app-error';
-import { DuplicateKeyError } from 'src/app/shared/error-handling/duplicate-key-error';
-import { NoChangesMadeError } from 'src/app/shared/error-handling/no-changes-made-error';
-import { GebruikerDeleteDialogComponent } from './delete.dialog';
 import { NotFoundError } from 'src/app/shared/error-handling/not-found-error';
+import { AppError } from 'src/app/shared/error-handling/app-error';
+import { NoChangesMadeError } from 'src/app/shared/error-handling/no-changes-made-error';
+import { DuplicateKeyError } from 'src/app/shared/error-handling/duplicate-key-error';
+import { DocumentAddDialogComponent } from './add.dialog';
+import { DocumentDeleteDialogComponent } from './delete.dialog';
 
 @Component({
-  selector: 'app-gebruikers',
-  templateUrl: './gebruikers.component.html',
-  styleUrls: ['./gebruikers.component.scss']
+  selector: 'app-onderhoud-docs',
+  templateUrl: './onderhoud-docs.component.html',
+  styleUrls: ['./onderhoud-docs.component.scss']
 })
-export class GebruikersComponent extends ParentComponent implements OnInit {
+export class OnderhoudDocsComponent extends ParentComponent implements OnInit {
 
   constructor(
     protected snackBar: MatSnackBar,
     public dialog: MatDialog,
-    protected gebruikersService: GebruikersService) {
+    protected documentsService: DocumentenService) {
     super(snackBar)
   }
 
   @ViewChild(MatTable, { static: false }) table: MatTable<any>;
-  public dataSource = new MatTableDataSource<GebruikerItem>();
-  public columnsToDisplay: string[] = ['Inlogcode', 'Naam', 'actions'];
+  public dataSource = new MatTableDataSource<DocumentItem>();
+  public columnsToDisplay: string[] = ['KorteNaam', 'WeergaveNaam', 'actions'];
 
   ngOnInit(): void {
-    let sub = this.gebruikersService.getAll$()
-      .subscribe((data: Array<GebruikerItem>) => {
+    let sub = this.documentsService.getAll$()
+      .subscribe((data: Array<DocumentItem>) => {
         this.dataSource.data = data;
       });
     this.registerSubscription(sub);
@@ -41,18 +41,18 @@ export class GebruikersComponent extends ParentComponent implements OnInit {
 
   onAdd(): void {
 
-    const toBeAdded = new GebruikerItem();
+    const toBeAdded = new DocumentItem();
     let tmp;
 
-    const dialogRef = this.dialog.open(GebruikerAddDialogComponent, {
-      panelClass: 'custom-dialog-container', width: '400px',
+    const dialogRef = this.dialog.open(DocumentAddDialogComponent, {
+      panelClass: 'custom-dialog-container', width: '500px',
       data: { 'method': 'Toevoegen', 'data': toBeAdded }
     });
 
     dialogRef.afterClosed()  // returns an observable
       .subscribe(result => {
         if (result) {  // in case of cancel the result will be false
-          let sub = this.gebruikersService.create$(result)
+          let sub = this.documentsService.create$(result)
             .subscribe(addResult => {
               this.dataSource.data.unshift(result); // voeg de regel vooraan in de tabel toe.
               this.refreshTableLayout();
@@ -72,18 +72,18 @@ export class GebruikersComponent extends ParentComponent implements OnInit {
   /***************************************************************************************************
   / 
   /***************************************************************************************************/
-  onEdit(index: number, huisnummer: number): void {
+  onEdit(index: number, shortname: string): void {
 
-    const toBeEdited: GebruikerItem = this.dataSource.filteredData[index];
+    const toBeEdited: DocumentItem = this.dataSource.filteredData[index];
 
-    const dialogRef = this.dialog.open(GebruikerAddDialogComponent, {
-      panelClass: 'custom-dialog-container', width: '400px',
+    const dialogRef = this.dialog.open(DocumentAddDialogComponent, {
+      panelClass: 'custom-dialog-container', width: '500px',
       data: { 'method': 'Wijzigen', 'data': toBeEdited }
     });
 
-    dialogRef.afterClosed().subscribe((result: GebruikerItem) => {
+    dialogRef.afterClosed().subscribe((result: DocumentItem) => {
       if (result) {  // in case of cancel the result will be false
-        let sub = this.gebruikersService.update$(result)
+        let sub = this.documentsService.update$(result)
           .subscribe(data => {
             this.showSnackBar(SnackbarTexts.SuccessFulSaved);
           },
@@ -100,21 +100,21 @@ export class GebruikersComponent extends ParentComponent implements OnInit {
   /***************************************************************************************************
   / 
   /***************************************************************************************************/
-  onDelete(index: number, Userid: number): void {
-    const toBeDeleted: GebruikerItem = this.dataSource.filteredData[index];
+  onDelete(index: number, shortname: string): void {
+    const toBeDeleted: DocumentItem = this.dataSource.filteredData[index];
 
-    const dialogRef = this.dialog.open(GebruikerDeleteDialogComponent, {
-      panelClass: 'custom-dialog-container', width: '300px',
+    const dialogRef = this.dialog.open(DocumentDeleteDialogComponent, {
+      panelClass: 'custom-dialog-container', width: '400px',
       data: { 'method': 'Verwijder', 'data': toBeDeleted }
     });
 
-    dialogRef.afterClosed().subscribe((result: GebruikerItem) => {
+    dialogRef.afterClosed().subscribe((result: DocumentItem) => {
       if (result) {  // in case of cancel the result will be false
-        let sub = this.gebruikersService.delete$(Userid)
+        let sub = this.documentsService.delete$(shortname)
           .subscribe(data => {
             this.dataSource.data.splice(index, 1);
             this.refreshTableLayout();
-            this.showSnackBar('Gebruiker met logincode ' + Userid + ' verwijderd');
+            this.showSnackBar('Document ' + shortname + ' verwijderd');
           },
             (error: AppError) => {
               if (error instanceof NotFoundError) {
@@ -133,13 +133,7 @@ export class GebruikersComponent extends ParentComponent implements OnInit {
   private refreshTableLayout(): void {
     this.table.dataSource = this.dataSource;
     this.dataSource.data.sort((item1, item2) => {
-      return (item1.Name.toString().localeCompare(item2.Name.toString(), undefined, { numeric: true }));
-
-      // Om de een of andere reden worden de twee numbers als string gesorteerd waardoor 9 groter is als 10.
-      // De regel hierboven vond ik op het internet. Dit verhelpt het.
-      // if (item1.huisnummer < item2.huisnummer) { return -1; }
-      // if (item1.huisnummer > item2.huisnummer) { return 1; }
-      // return 0;
+      return (item1.shortname.toString().localeCompare(item2.shortname.toString(), undefined, { numeric: false }));
     });
     this.table.renderRows();
   }

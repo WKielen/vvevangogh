@@ -5,7 +5,7 @@
             <div class="boxcontent">
                 <app-select-lid-dropdown [leden-array]="ledenArray" (valueSelected)="onUserSelectedRole($event)">
                 </app-select-lid-dropdown>
-                <app-checkbox-list [csString]="csString" [checkboxDictionairy]='myCheckboxDictionairy'
+                <app-checkbox-list [checkboxDictionary]='myCheckboxDictionary'
                     (click)="onRoleClicked($event)"></app-checkbox-list>
             </div>
             <div class="boxbottom">

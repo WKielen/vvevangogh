@@ -22,6 +22,7 @@ import { TestComponent } from './../my-pages/test/test.component';
 import { AgendaDialogComponent } from './../my-pages/agenda/agenda.dialog';
 import { LedenDialogComponent } from './../my-pages/ledenmanager/ledenmanager.dialog';
 import { BewonerDeleteDialogComponent } from './onderhoud/delete.dialog';
+import { GebruikerDeleteDialogComponent } from './gebruikers/delete.dialog';
 import { MailDialogComponent } from './../my-pages/mail/mail.dialog';
 import { RolesDialogComponent } from './../my-pages/users/roles.dialog';
 import { SignInDialogComponent } from './../my-pages/sign-in/sign-in.dialog';
@@ -45,6 +46,11 @@ import { BewonersComponent } from './bewoners/bewoners.component';
 import { GebruikersComponent } from './gebruikers/gebruikers.component';
 import { OnderhoudComponent } from './onderhoud/onderhoud.component';
 import { BewonerAddDialogComponent } from './onderhoud/add.dialog';
+import { GebruikerAddDialogComponent } from './gebruikers/add.dialog';
+import { DocumentenComponent } from './documenten/documenten.component';
+import { OnderhoudDocsComponent } from './onderhoud-docs/onderhoud-docs.component';
+import { DocumentAddDialogComponent } from './onderhoud-docs/add.dialog';
+import { DocumentDeleteDialogComponent } from './onderhoud-docs/delete.dialog';
 
 
 @NgModule({
@@ -70,9 +76,13 @@ import { BewonerAddDialogComponent } from './onderhoud/add.dialog';
     TestComponent,
 
     BewonerAddDialogComponent,
+    GebruikerAddDialogComponent,
+    DocumentAddDialogComponent,
     AgendaDialogComponent,
     LedenDialogComponent,
     BewonerDeleteDialogComponent,
+    GebruikerDeleteDialogComponent,
+    DocumentDeleteDialogComponent,
     MailDialogComponent,
     RolesDialogComponent,
     SignInDialogComponent,
@@ -84,6 +94,8 @@ import { BewonerAddDialogComponent } from './onderhoud/add.dialog';
     CheckboxListComponent,
     ParentComponent,
     OnderhoudComponent,
+    DocumentenComponent,
+    OnderhoudDocsComponent,
   ],
   imports: [
     CommonModule,

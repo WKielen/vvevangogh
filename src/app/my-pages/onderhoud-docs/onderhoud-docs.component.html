@@ -1,19 +1,19 @@
 <div fxLayout='row' fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly start">
-    <div fxFlex='60'>
+    <div fxFlex='100'>
         <div class="box">
-            <div class="boxheader">Onderhoud gebruikers</div>
+            <div class="boxheader">Onderhoud documenten</div>
             <div class="boxcontent">
 
                 <mat-table #table [dataSource]="dataSource" class="mat-cell">
 
-                    <ng-container matColumnDef="Inlogcode">
-                        <mat-header-cell *matHeaderCellDef>Inlogcode</mat-header-cell>
-                        <mat-cell *matCellDef="let row">{{row.Userid}}</mat-cell>
+                    <ng-container matColumnDef="KorteNaam">
+                        <mat-header-cell *matHeaderCellDef>Korte Naam</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.shortname}}</mat-cell>
                     </ng-container>
 
-                    <ng-container matColumnDef="Naam">
-                        <mat-header-cell *matHeaderCellDef>Naam</mat-header-cell>
-                        <mat-cell *matCellDef="let row">{{row.Name}}</mat-cell>
+                    <ng-container matColumnDef="WeergaveNaam">
+                        <mat-header-cell *matHeaderCellDef>Weergave Naam</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.longname}}</mat-cell>
                     </ng-container>
 
                     <!-- actions -->
@@ -25,20 +25,13 @@
                         </mat-header-cell>
 
                         <mat-cell *matCellDef="let row; let i=index;">
-                            <button mat-icon-button color="primary" (click)="onEdit(i, row.Userid)">
+                            <button mat-icon-button color="primary" (click)="onEdit(i, row.shortname)">
                                 <mat-icon aria-label="Edit">edit</mat-icon>
                             </button>
-                            <!--   <button mat-icon-button color="accent" (click)="startEdit(i, row.id, row.title, row.state, row.url, row.created_at, row.updated_at)">
-          <mat-icon aria-label="Edit">edit</mat-icon>
-        </button> -->
 
                             <button mat-icon-button color="warn">
-                                <mat-icon aria-label="Delete" (click)="onDelete(i, row.Userid)">delete</mat-icon>
+                                <mat-icon aria-label="Delete" (click)="onDelete(i, row.shortname)">delete</mat-icon>
                             </button>
-
-                            <!-- <button mat-icon-button color="accent" (click)="deleteItem(i, row.id, row.title, row.state, row.url)">
-          <mat-icon aria-label="Delete">delete</mat-icon>
-        </button> -->
                         </mat-cell>
                     </ng-container>
 

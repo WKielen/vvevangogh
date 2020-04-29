@@ -1,22 +1,20 @@
 import { Component, Inject, OnInit, Input } from '@angular/core';
-import { DateAdapter } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FormValueToDutchDateString } from 'src/app/shared/modules/DateRoutines';
-
 
 @Component({
     selector: 'app-delete-dialog',
     templateUrl: './delete.dialog.html',
 })
-export class BewonerDeleteDialogComponent implements OnInit {
+export class GebruikerDeleteDialogComponent implements OnInit {
 
     constructor(
-        public dialogRef: MatDialogRef<BewonerDeleteDialogComponent>,
+        public dialogRef: MatDialogRef<GebruikerDeleteDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data,
         ) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+    }
 
     confirmDelete(): void {
         this.dialogRef.close(this.data.data);

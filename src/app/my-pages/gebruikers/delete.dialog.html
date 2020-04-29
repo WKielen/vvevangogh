@@ -1,0 +1,18 @@
+<h2 mat-dialog-title class="boxheader">{{data.method}}</h2>
+<div class="boxcontent">
+  <mat-dialog-content>
+    <div>
+      <h3 mat-dialog-title>Weet je het zeker?</h3>
+      <div mat-dialog-content>
+        Logincode: {{data.data.Userid}}
+        <p></p>
+        Naam: {{data.data.Name}}
+        <p></p>
+      </div>
+      <br>
+      <button mat-raised-button class='box-bottom-button' color="primary" (click)="confirmDelete()">Verwijder</button>
+      <button mat-raised-button class='box-bottom-button' color="accent" mat-dialog-close>Cancel</button>
+
+    </div>
+  </mat-dialog-content>
+</div>

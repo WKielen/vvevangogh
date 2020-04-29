@@ -7,21 +7,22 @@ import { DataService } from './data.service';
   providedIn: 'root'
 })
 
-export class GebruikersService extends DataService {
+export class DocumentenService extends DataService {
 
   constructor(
     http: HttpClient) {
-    super(environment.baseUrl + '/gebruikers', http);
+    super(environment.baseUrl + '/documents', http);
   }
-
 }
 
 /***************************************************************************************************
 / Record for the database
 /***************************************************************************************************/
-export class GebruikerItem {
-  Userid: string = '';
-  Password: string = '';	 
-  Name: string = '';
-  Role: string = ''; 
+export class DocumentItem {
+   shortname: string = '';
+   longname: string = '';
+   url: string = '';
+   frontpage: string = '';
+   docpage: string = '';
+   managementonly = '';
 }
