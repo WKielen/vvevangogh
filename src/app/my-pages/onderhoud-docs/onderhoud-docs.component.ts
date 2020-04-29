@@ -31,7 +31,7 @@ export class OnderhoudDocsComponent extends ParentComponent implements OnInit {
   public columnsToDisplay: string[] = ['KorteNaam', 'WeergaveNaam', 'actions'];
 
   ngOnInit(): void {
-    let sub = this.documentsService.getAll$()
+    let sub = this.documentsService.getManagementDocuments$()
       .subscribe((data: Array<DocumentItem>) => {
         this.dataSource.data = data;
       });

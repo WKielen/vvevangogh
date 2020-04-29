@@ -20,8 +20,8 @@ export class DocumentAddDialogComponent implements OnInit {
             '',
             [Validators.required]
         ),
-        FrontPage: new FormControl(''),
-        DocPage: new FormControl(''),
+        // FrontPage: new FormControl(''),
+        // DocPage: new FormControl(''),
         ManagementOnly: new FormControl('')
     });
 
@@ -35,9 +35,9 @@ export class DocumentAddDialogComponent implements OnInit {
         this.ShortName.setValue(this.data.data.shortname);
         this.LongName.setValue(this.data.data.longname);
         this.Url.setValue(this.data.data.url);
-        this.FrontPage.setValue(this.data.data.frontpage);
-        this.DocPage.setValue(this.data.data.docpage);
-        this.ManagementOnly.setValue(this.data.data.managementonly);
+        // this.FrontPage.setValue(this.data.data.frontpage);
+        // this.DocPage.setValue(this.data.data.docpage);
+        this.ManagementOnly.setValue(this.data.data.managementonly.toBoolean());
 
         if (this.data.method =='Wijzigen')
             this.AddDocumentForm.get('ShortName').disable();
@@ -51,9 +51,10 @@ export class DocumentAddDialogComponent implements OnInit {
         this.data.data.shortname = this.ShortName.value;
         this.data.data.longname = this.LongName.value;
         this.data.data.url = this.Url.value;
-        this.data.data.frontpage = this.FrontPage.value;
-        this.data.data.docpage = this.DocPage.value;
-        this.data.data.managementonly = this.ManagementOnly.value;
+        // this.data.data.frontpage = this.FrontPage.value;
+        // this.data.data.docpage = this.DocPage.value;
+        console.log('t', this.ManagementOnly.value);
+        this.data.data.managementonly = this.ManagementOnly.value ? '1': '0';
         // Roles is already set by onRoleClicked
         this.dialogRef.close(this.data.data);
     }
@@ -82,12 +83,12 @@ export class DocumentAddDialogComponent implements OnInit {
     get Url() {
         return this.AddDocumentForm.get('Url');
     }
-    get FrontPage() {
-        return this.AddDocumentForm.get('FrontPage');
-    }
-    get DocPage() {
-        return this.AddDocumentForm.get('DocPage');
-    }
+    // get FrontPage() {
+    //     return this.AddDocumentForm.get('FrontPage');
+    // }
+    // get DocPage() {
+    //     return this.AddDocumentForm.get('DocPage');
+    // }
     get ManagementOnly() {
         return this.AddDocumentForm.get('ManagementOnly');
     }

@@ -1,1 +1,30 @@
-<p>documenten works!</p>
+<div fxLayout='row' fxLayoutAlign="space-evenly start">
+    <div fxFlex='70'>
+        <div class="box">
+            <div class="boxheader">Documenten overzicht</div>
+            <div class="boxcontent">
+
+                <mat-table #table [dataSource]="dataSource" class="mat-cell">
+
+                    <ng-container matColumnDef="WeergaveNaam">
+                        <mat-header-cell *matHeaderCellDef>
+                            <div fxFlex fxLayout='column'>
+                                <strong>Naam document</strong>
+
+                                <mat-form-field floatLabel="never" style="width:100px">
+                                    <mat-label>Zoek</mat-label>
+                                    <input matInput [formControl]="nameFilter" autocomplete="off">
+                                </mat-form-field>
+                            </div>
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let row"><a href="{{row.url}}" target="_blank" >{{row.longname}}</a></mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+                </mat-table>
+
+            </div>
+        </div>
+    </div>
+</div>
