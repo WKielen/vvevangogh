@@ -41,7 +41,7 @@ export class RolesDialogComponent implements OnInit {
         for (let i = 0; i < pageRoleKeys.length; i++) {
             pageRolesDict.add(pageRoleKeys[i].text, pageRoleValues[i].text);
         }
-        // toPrintDict = { Bestuur, [ledenPageRole, mailPageRole]}
+        // toPrintDict = { Bestuur, [xPageRole, mailPageRole]}
         // foreach is een rol zoals bestuur, trainer e.d.       { 'Id': ROLES.BESTUUR, 'Value': 'Bestuur' }
         this.myCheckboxDictionary.forEach(element => {
             // we gaan uitzoeken tot welke pagina deze rol toegang heeft    

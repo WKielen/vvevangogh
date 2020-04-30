@@ -11,13 +11,6 @@ import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
-import { LedenService } from './services/leden.service';
-import { ReadTextFileService } from './services/readtextfile.service';
-import { AgendaService } from './services/agenda.service';
-import { ParamService } from './services/param.service';
-import { MailService } from './services/mail.service';
-import { TrainingService } from './services/training.service';
-import { NotificationService } from './services/notification.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ErrorHandler, LOCALE_ID } from '@angular/core';
@@ -47,21 +40,10 @@ registerLocaleData(localeNl);
   providers: [AuthService,
     AuthGuard,
     AdminAuthGuard,
-    LedenService,
-    ReadTextFileService,
-    {
-      provide: APP_BASE_HREF,
-      useValue: '/'
-    },
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    AgendaService,
-    ParamService,
-    MailService,
-    TrainingService,
-    NotificationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
@@ -71,7 +53,6 @@ registerLocaleData(localeNl);
       provide: ErrorHandler,
       useClass: AppErrorHandler
     },
-
     {
       provide: LOCALE_ID,
       useValue: 'nl'

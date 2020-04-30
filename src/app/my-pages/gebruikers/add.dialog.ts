@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { RolesDialogComponent } from '../users/roles.dialog';
+import { RolesDialogComponent } from './roles.dialog';
 import { CheckboxDictionary } from 'src/app/shared/components/checkbox.list.component';
 import { ROLES } from 'src/app/shared/classes/Page-Role-Variables';
 

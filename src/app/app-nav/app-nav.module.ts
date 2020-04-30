@@ -14,8 +14,6 @@ import { HeaderLandingComponent } from './headerlanding/header.landing.component
 import { FooterComponent } from './footer/footer.component';
 import { FooterLandingComponent } from './footerlanding/footer.landing.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ConfigDialogComponent } from './headerconfigdialog/config.dialog';
-import { NotificationDialogComponent } from './headernotificationdialog/notification.dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -36,8 +34,6 @@ import { DefaultComponent } from './default/default.component';
     FooterComponent,
     FooterLandingComponent,
     SidebarComponent,
-    ConfigDialogComponent,
-    NotificationDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -67,8 +63,6 @@ import { DefaultComponent } from './default/default.component';
     FooterComponent,
     FooterLandingComponent,
     SidebarComponent,
-    ConfigDialogComponent,
-    NotificationDialogComponent,
   ]
 })
 

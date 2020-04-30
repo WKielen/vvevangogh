@@ -56,7 +56,7 @@ export class SidebarComponent implements OnInit {
   }
   // Op de mobiel wordt het menu automatisch gesloten wanneer en een keuze is gemaakt.
   route(myRoute: string): void {
-    this.router.navigate([myRoute as any], {queryParams: { role: this.authService.roles}} );
+    this.router.navigate([myRoute as any]);
     if (this.isHandset) {
       this.displaySideBar.emit(false);
     }

@@ -5,9 +5,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ParentComponent } from 'src/app/shared/components/parent.component';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { async } from 'rxjs/internal/scheduler/async';
-import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-documenten',
@@ -18,7 +16,7 @@ export class DocumentenComponent extends ParentComponent implements OnInit {
 
   constructor(
     protected snackBar: MatSnackBar,
-    protected route: ActivatedRoute,
+    protected authService: AuthService,
     protected documentsService: DocumentenService) {
     super(snackBar)
   }
@@ -28,15 +26,9 @@ export class DocumentenComponent extends ParentComponent implements OnInit {
   public columnsToDisplay: string[] = ['WeergaveNaam'];
   public nameFilter = new FormControl('');
   public filterValues = { WeergaveNaam: '' };
-  private roles: string = '';
 
   ngOnInit(): void {
-    let sub1 = this.route
-      .queryParams
-      .subscribe(param => {
-        this.getDocumentsBasedonRole(param.role)
-      })
-    this.registerSubscription(sub1);
+    this.getDocumentsBasedonRole(this.authService.roles);
    
     /***************************************************************************************************
     / Er is een key ingetypt op de naam categorie filter: aboneer op de filter
@@ -52,6 +44,7 @@ export class DocumentenComponent extends ParentComponent implements OnInit {
   }
 
   private getDocumentsBasedonRole(roles:string) {
+    console.log('roles', roles);
     let myObservable = new Observable<object>();
     if (roles.includes('BS')) {
       myObservable = this.documentsService.getManagementDocuments$()

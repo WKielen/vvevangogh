@@ -1,11 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ExportToCsv } from 'export-to-csv';
-import { DynamicDownload } from 'src/app/shared/modules/DynamicDownload';
-import { SnackbarTexts } from 'src/app/shared/error-handling/SnackbarTexts';
 import { ParentComponent } from 'src/app/shared/components/parent.component';
 import { BewonersService, BewonerItem } from 'src/app/services/bewoners.service';
-import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-download-page',
