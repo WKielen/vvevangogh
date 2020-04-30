@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.logonData.Name = this.authService.fullName;
     this.logonData.UserId = this.authService.userId;
+    this.logonData.IsLoggedOn = this.authService.isLoggedIn();
   }
 
   toggleSideBar() {
