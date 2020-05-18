@@ -76,16 +76,16 @@ export class DownloadComponent extends ParentComponent implements OnInit {
             if (element.edocs == '0') return;
             if (element.email) {
                 tmpText += '\n';
-                tmpText += '"' + element.naam + '",';
+                tmpText += '"' + element.email + '",';
                 tmpText += '"' + element.huisnummer + '",';
-                tmpText += '"' + element.email;
+                tmpText += '"' + element.naam;
                 nbr++;
             }
             if (element.email2) {
                 tmpText += '\n';
-                tmpText += '"' + element.naam + '",';
-                tmpText += '"' + element.huisnummer + '",';
                 tmpText += '"' + element.email2 + '",';
+                tmpText += '"' + element.huisnummer + '",';
+                tmpText += '"' + element.naam + '",';
                 nbr++;
             }
         });
