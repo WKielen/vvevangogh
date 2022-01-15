@@ -28,7 +28,7 @@
     "@auth0/angular-jwt": "^3.0.1",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "export-to-csv": "^0.2.1",
-    "highcharts": "^8.0.4",
+    "highcharts": "^9.0.0",
     "highcharts-angular": "^2.4.0",
     "moment": "^2.24.0",
     "rxjs": "~6.5.5",
