@@ -34,7 +34,7 @@ registerLocaleData(localeNl);
     AppNavModule,
     MyPagesModule,
     // Registratie van sw veranderd omdat we niet in de base href zitten maar in admin.
-    ServiceWorkerModule.register('/app/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
 
   providers: [AuthService,

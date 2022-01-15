@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs/internal/operators/map';
+import { Md5 } from 'ts-md5';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,8 @@ export class AuthService {
 
   login$(credentials) {
     let localData;
+
+    credentials.password = <string>Md5.hashStr(credentials.password);
     return this.http.post<string>(environment.loginUrl, credentials)
       .pipe(
         map(response => {

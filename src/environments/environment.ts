@@ -6,10 +6,10 @@ export const environment = {
   production: false,
   homePage: 'home',
   dashboardPage: 'home',
-  baseUrl: 'https://vvevangogh.kielen.nl/api',
-  loginUrl: 'https://vvevangogh.kielen.nl/api/login',
-  databaseName: 'kielennl',
-  mailUrl: 'http://84.104.233.194:5001'
+  baseUrl: 'https://www.vvevangogh.nl/api',
+  loginUrl: 'https://www.vvevangogh.nl/api/login',
+  databaseName: 'dbs5265773',
+  mailUrl: ''
 };
 
 /*

@@ -5,10 +5,12 @@ import { throwError as observableThrowError, Subscription } from 'rxjs';
 import { NotFoundError } from '../shared/error-handling/not-found-error';
 import { DuplicateKeyError } from '../shared/error-handling/duplicate-key-error';
 import { NoChangesMadeError } from '../shared/error-handling/no-changes-made-error';
+import { Directive } from '@angular/core';
 
+@Directive()  // Toegevoegd bij migratie naar 11
 export class DataService {
 
-  private observableSubscriptions = [];
+  private observableSubscriptions = new Array<Subscription>();
 
   constructor(protected url: string,
     protected http: HttpClient) { }
