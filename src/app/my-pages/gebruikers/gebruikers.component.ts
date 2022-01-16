@@ -11,6 +11,7 @@ import { DuplicateKeyError } from 'src/app/shared/error-handling/duplicate-key-e
 import { NoChangesMadeError } from 'src/app/shared/error-handling/no-changes-made-error';
 import { GebruikerDeleteDialogComponent } from './delete.dialog';
 import { NotFoundError } from 'src/app/shared/error-handling/not-found-error';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-gebruikers',
@@ -50,8 +51,9 @@ export class GebruikersComponent extends ParentComponent implements OnInit {
     });
 
     dialogRef.afterClosed()  // returns an observable
-      .subscribe(result => {
+      .subscribe((result: GebruikerItem) => {
         if (result) {  // in case of cancel the result will be false
+          result.Password = <string>Md5.hashStr(result.Password);
           let sub = this.gebruikersService.create$(result)
             .subscribe(addResult => {
               this.dataSource.data.unshift(result); // voeg de regel vooraan in de tabel toe.
